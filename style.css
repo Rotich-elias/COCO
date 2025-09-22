@@ -41,10 +41,19 @@ body {
 }
 
 .nav-logo {
-    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--accent-color);
-    text-decoration: none;
+}
+
+.logo-img {
+    height: 50px;
+    width: auto;
+    max-width: 200px;
 }
 
 .nav-menu {
