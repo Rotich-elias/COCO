@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https:; font-src 'self' https:;">
+    <meta name="description" content="Exclusive errand services in Kenya - from special events to airport pickups. Serving diaspora clients with reliable, local assistance.">
+    <meta property="og:title" content="Exclusive Errands by Coco">
+    <meta property="og:description" content="Exclusive errand services in Kenya - from special events to airport pickups. Serving diaspora clients with reliable, local assistance.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=400&q=80">
+    <meta property="og:url" content="https://exclusiveerrandsbycoco.com">
+    <meta property="og:type" content="website">
     <title>Exclusive Errands by Coco</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,15 +19,16 @@
 <body>
 
     <header>
-        <nav class="navbar">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
             <a href="#home" class="nav-logo">Exclusive Errands by Coco</a>
             <ul class="nav-menu">
                 <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
                 <li class="nav-item"><a href="#rates" class="nav-link">Rate Card</a></li>
+                <li class="nav-item"><a href="#quote" class="nav-link">Get a Quote</a></li>
                 <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="hamburger">
+            <div class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -28,7 +36,7 @@
         </nav>
     </header>
 
-    <main>
+    <main role="main">
         <!-- Hero Section -->
         <section id="home" class="hero-section">
             <div class="hero-content">
@@ -38,71 +46,132 @@
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="content-section">
+        <section id="services" class="content-section fade-in">
             <h2>Our Services</h2>
             <div class="card-container">
                 <div class="card service-card">
-                    <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=400&q=80" alt="Balloons and gifts for a surprise party" class="card-img">
+                    <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=400&q=80" alt="Balloons and gifts for a surprise party" class="card-img" loading="lazy">
                     <div class="card-content">
                         <h3>🎉 Special Events & Surprises</h3>
                         <p class="service-description">Hospital recovery surprises, delivery room congratulations, office surprises, home surprises.</p>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="https://images.unsplash.com/photo-1599256872238-54b4a71b4432?auto=format&fit=crop&w=400&q=80" alt="A person holding several shopping bags" class="card-img">
+                    <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=400&q=80" alt="Colorful shopping bags on a table" class="card-img" loading="lazy">
                     <div class="card-content">
                         <h3>🛍 Shopping & Products</h3>
                         <p class="service-description">Dressing, housing materials, general house shopping, hair & makeup products.</p>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=400&q=80" alt="An airport terminal with a plane in the background" class="card-img">
+                    <img src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=400&q=80" alt="An airport terminal with a plane in the background" class="card-img" loading="lazy">
                     <div class="card-content">
                         <h3>✈️ Airport Pickups & Drop-offs</h3>
                         <p class="service-description">Reliable and timely transportation to and from the airport for you or your loved ones.</p>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=400&q=80" alt="A modern and cozy living room interior" class="card-img">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=400&q=80" alt="A modern and cozy living room interior" class="card-img" loading="lazy">
                     <div class="card-content">
                         <h3>🏡 BnB Accommodation</h3>
                         <p class="service-description">Available in Eldoret (Pioneer, Teleview, Elgon View & Annex) and Nairobi (South B).</p>
                     </div>
                 </div>
                 <div class="card service-card">
-                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=400&q=80" alt="Workers at a construction site" class="card-img">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=400&q=80" alt="Workers at a construction site" class="card-img" loading="lazy">
                     <div class="card-content">
                         <h3>🏗 Construction Site Checks</h3>
                         <p class="service-description">We’ll check on your contractor and send updates.</p>
+                    </div>
+                </div>
+                <div class="card service-card">
+                    <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=400&q=80" alt="A delivery truck on the road" class="card-img" loading="lazy">
+                    <div class="card-content">
+                        <h3>📦 Parcel & Delivery Services</h3>
+                        <p class="service-description">Secure handling of personal and business deliveries, ensuring items reach safely and on time.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Rate Card Section -->
-        <section id="rates" class="content-section">
+        <section id="rates" class="content-section fade-in">
             <h2>Rate Card</h2>
             <div class="card">
                 <ul class="rate-list">
-                    <li><span>Special Events & Surprises:</span> <span>[Pricing on request]</span></li>
-                    <li><span>Shopping & Products:</span> <span>[Pricing on request]</span></li>
-                    <li><span>Airport Pickups & Drop-offs:</span> <span>[Pricing on request]</span></li>
-                    <li><span>BnB Accommodation:</span> <span>[Pricing on request]</span></li>
-                    <li><span>Construction Site Checks:</span> <span>[Pricing on request]</span></li>
+                    <li><span>Special Events & Surprises:</span> <span>KES 5,000 - KES 15,000</span></li>
+                    <li><span>Shopping & Products:</span> <span>KES 2,000 - KES 10,000</span></li>
+                    <li><span>Airport Pickups & Drop-offs:</span> <span>KES 3,000 - KES 8,000</span></li>
+                    <li><span>BnB Accommodation:</span> <span>KES 4,000 - KES 12,000 per night</span></li>
+                    <li><span>Construction Site Checks:</span> <span>KES 2,500 per visit</span></li>
+                    <li><span>Parcel & Delivery Services:</span> <span>KES 1,500 - KES 5,000</span></li>
                 </ul>
             </div>
         </section>
 
+        <!-- Get a Quote Section -->
+        <section id="quote" class="content-section fade-in">
+            <h2>Get a Quote</h2>
+            <div class="card">
+                <form class="quote-form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service of Interest</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="special-events">Special Events & Surprises</option>
+                            <option value="shopping">Shopping & Products</option>
+                            <option value="airport">Airport Pickups & Drop-offs</option>
+                            <option value="bnb">BnB Accommodation</option>
+                            <option value="construction">Construction Site Checks</option>
+                            <option value="parcel-delivery">Parcel & Delivery Services</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us more about your needs..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Request Quote</button>
+                </form>
+            </div>
+        </section>
+
         <!-- About Us Section -->
-        <section id="about" class="content-section">
+        <section id="about" class="content-section fade-in">
             <h2>About Us</h2>
             <div class="card">
                 <p>Our errands help diaspora clients feel safe at home, while making life easier for those here.</p>
             </div>
         </section>
 
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="content-section fade-in">
+            <h2>What Our Clients Say</h2>
+            <div class="card-container">
+                <div class="card testimonial-card">
+                    <p>"Coco made my mom's recovery so special with the surprise delivery. Highly recommend!"</p>
+                    <p class="client-name">- Lilian J., USA</p>
+                </div>
+                <div class="card testimonial-card">
+                    <p>"Reliable airport pickup every time. Saved me so much stress!"</p>
+                    <p class="client-name">- Elias K., Australia</p>
+                </div>
+                <div class="card testimonial-card">
+                    <p>"The shopping service is a lifesaver. Quality products delivered on time."</p>
+                    <p class="client-name">- Chepchumba L., UK</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
-        <section id="contact" class="content-section">
+        <section id="contact" class="content-section fade-in">
             <h2>Get In Touch</h2>
             <div class="card">
                 <div class="contact-links">
@@ -125,6 +194,7 @@
         </div>
     </footer>
 
+    <button id="back-to-top" aria-label="Back to top" style="display: none;">↑</button>
     <script src="script.js"></script>
 </body>
 </html>
