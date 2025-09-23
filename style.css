@@ -254,6 +254,24 @@ body {
     transform: scale(1.1);
 }
 
+.tip-jar-container {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+}
+
+.tip-jar-container p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.tip-button {
+    background-color: #4CAF50; /* M-Pesa green */
+}
+.tip-button:hover {
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
 /* --- Quote Form Styles --- */
 .quote-form {
     display: flex;
