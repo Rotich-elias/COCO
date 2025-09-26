@@ -89,19 +89,95 @@ body {
 
 /* --- Hero Section --- */
 .hero-section {
-    background-color: var(--primary-pink);
+    position: relative;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 0 2rem;
+    overflow: hidden;
+}
+
+.hero-slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(252, 228, 236, 0.7); /* semi-transparent pink overlay */
+    z-index: -1;
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
+}
+
+/* --- Countdown Styles --- */
+#countdown {
+    margin: 2rem 0;
+}
+
+#countdown p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark-text);
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    min-width: 80px;
+}
+
+.time-unit span:first-child {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.label {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    text-transform: uppercase;
+    margin-top: 0.5rem;
 }
 
 .cta-button {
