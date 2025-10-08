@@ -78,6 +78,7 @@ if (backToTopBtn) {
 
 // Handle quote form submission to WhatsApp
 const quoteForm = document.querySelector('.quote-form');
+const formConfirmation = document.getElementById('form-confirmation');
 if (quoteForm) {
     quoteForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -89,6 +90,12 @@ if (quoteForm) {
         const whatsappMessage = `Hello Coco, I am ${name}. Email: ${email}. Service: ${service}. Message: ${message}`;
         const whatsappUrl = `https://wa.me/254701644277?text=${encodeURIComponent(whatsappMessage)}`;
         window.open(whatsappUrl, '_blank');
+
+        // Show confirmation message
+        if (formConfirmation) {
+            formConfirmation.style.display = 'block';
+        }
+        quoteForm.reset();
     });
 } else {
     console.error('Quote form not found');
@@ -96,7 +103,12 @@ if (quoteForm) {
 
 // Hero slideshow
 const slides = document.querySelectorAll('.slide');
+const prevBtn = document.getElementById('prev-slide');
+const nextBtn = document.getElementById('next-slide');
+const playPauseBtn = document.getElementById('play-pause-slide');
 let currentSlide = 0;
+let slideInterval = setInterval(nextSlide, 5000);
+let isPlaying = true;
 
 function showSlide(index) {
     slides.forEach(slide => slide.classList.remove('active'));
@@ -108,4 +120,44 @@ function nextSlide() {
     showSlide(currentSlide);
 }
 
-setInterval(nextSlide, 5000); // Change slide every 5 seconds
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+function playPauseSlideshow() {
+    if (isPlaying) {
+        clearInterval(slideInterval);
+        playPauseBtn.innerHTML = '▶'; // Play icon
+    } else {
+        slideInterval = setInterval(nextSlide, 5000);
+        playPauseBtn.innerHTML = '❚❚'; // Pause icon
+    }
+    isPlaying = !isPlaying;
+}
+
+if (slides.length > 0) {
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            if (isPlaying) {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            if (isPlaying) {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+        });
+    }
+
+    if (playPauseBtn) {
+        playPauseBtn.addEventListener('click', playPauseSlideshow);
+    }
+}
