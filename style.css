@@ -123,6 +123,30 @@ body {
     opacity: 1;
 }
 
+.slideshow-controls {
+    position: absolute;
+    bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    z-index: 10;
+}
+
+.slideshow-controls button {
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    color: var(--dark-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.slideshow-controls button:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -390,6 +414,13 @@ body {
     margin-top: 1rem;
 }
 
+.form-confirmation-message {
+    margin-top: 1.5rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
 /* --- Testimonial Styles --- */
 .testimonial-card {
     text-align: center;
@@ -448,8 +479,8 @@ body {
 
 /* --- Footer --- */
 footer {
-    background-color: var(--dark-text);
-    color: #f0f0f0;
+    background-color: var(--primary-pink);
+    color: var(--dark-text);
     padding: 3rem 5%;
     text-align: center;
 }
@@ -457,7 +488,7 @@ footer {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: var(--primary-pink);
+    color: var(--dark-text);
 }
 .footer-contact {
     display: flex;
@@ -466,12 +497,12 @@ footer {
     flex-wrap: wrap;
 }
 .footer-contact a {
-    color: #f0f0f0;
+    color: var(--dark-text);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 .footer-contact a:hover {
-    color: var(--primary-pink);
+    color: var(--accent-color);
 }
 
 /* --- Responsive Design (Mobile First) --- */
