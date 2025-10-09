@@ -17,6 +17,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Account for fixed navbar height */
 }
 
 body {
@@ -24,6 +25,39 @@ body {
     background-color: var(--bg-color);
     color: var(--dark-text);
     line-height: 1.6;
+}
+
+/* --- Improved Focus Indicators for Accessibility --- */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Visible focus for interactive elements */
+.nav-link:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.hamburger:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.cta-button:focus {
+    outline: 3px solid var(--dark-text);
+    outline-offset: 3px;
+}
+
+.slideshow-controls button:focus {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
 }
 
 /* --- Header & Navigation --- */
@@ -161,47 +195,6 @@ body {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-}
-
-/* --- Countdown Styles --- */
-#countdown {
-    margin: 2rem 0;
-}
-
-#countdown p {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--dark-text);
-}
-
-.countdown-timer {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.time-unit {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: var(--card-bg);
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-    min-width: 80px;
-}
-
-.time-unit span:first-child {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--accent-color);
-}
-
-.label {
-    font-size: 0.9rem;
-    color: var(--light-text);
-    text-transform: uppercase;
-    margin-top: 0.5rem;
 }
 
 .cta-button {
@@ -464,8 +457,10 @@ body {
     font-size: 1.5rem;
     cursor: pointer;
     box-shadow: var(--shadow);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
     z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
 }
 
 #back-to-top:hover {
@@ -474,7 +469,8 @@ body {
 }
 
 #back-to-top.show {
-    display: block;
+    opacity: 1;
+    visibility: visible;
 }
 
 /* --- Footer --- */

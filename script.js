@@ -82,19 +82,56 @@ const formConfirmation = document.getElementById('form-confirmation');
 if (quoteForm) {
     quoteForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const service = document.getElementById('service').options[document.getElementById('service').selectedIndex].text;
-        const message = document.getElementById('message').value;
 
+        // Get form values
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const serviceSelect = document.getElementById('service');
+        const messageInput = document.getElementById('message');
+
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const service = serviceSelect.options[serviceSelect.selectedIndex].text;
+        const message = messageInput.value.trim();
+
+        // Enhanced validation
+        let isValid = true;
+        let errorMessage = '';
+
+        if (name.length < 2) {
+            isValid = false;
+            errorMessage = 'Please enter a valid name (at least 2 characters).';
+            nameInput.focus();
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            isValid = false;
+            errorMessage = 'Please enter a valid email address.';
+            emailInput.focus();
+        } else if (serviceSelect.value === '') {
+            isValid = false;
+            errorMessage = 'Please select a service.';
+            serviceSelect.focus();
+        }
+
+        if (!isValid) {
+            alert(errorMessage);
+            return;
+        }
+
+        // Build WhatsApp message
         const whatsappMessage = `Hello Coco, I am ${name}. Email: ${email}. Service: ${service}. Message: ${message}`;
         const whatsappUrl = `https://wa.me/254701644277?text=${encodeURIComponent(whatsappMessage)}`;
+
+        // Open WhatsApp
         window.open(whatsappUrl, '_blank');
 
         // Show confirmation message
         if (formConfirmation) {
             formConfirmation.style.display = 'block';
+            setTimeout(() => {
+                formConfirmation.style.display = 'none';
+            }, 5000); // Hide after 5 seconds
         }
+
         quoteForm.reset();
     });
 } else {
@@ -160,4 +197,24 @@ if (slides.length > 0) {
     if (playPauseBtn) {
         playPauseBtn.addEventListener('click', playPauseSlideshow);
     }
+
+    // Keyboard support for slideshow
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+            if (isPlaying) {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+            if (isPlaying) {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+        } else if (e.key === ' ' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+            e.preventDefault();
+            playPauseSlideshow();
+        }
+    });
 }
